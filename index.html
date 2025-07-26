@@ -125,6 +125,54 @@
   </div>
 </section>
 
+<style>
+  /* 歌词 summary 鼠标悬停效果 */
+  details summary {
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.2s, text-decoration 0.2s;
+  }
+  details summary:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  details[open] summary {
+    color: #d9534f;
+  }
+  
+  /* 歌词内容美化 */
+  .lyrics-content {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    white-space: pre-line;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .lyrics-section {
+    font-weight: bold;
+    color: #333;
+    margin-top: 8px;
+  }
+  
+  /* 音频列弱化 */
+  .audio-compare {
+    opacity: 0.5;
+    font-size: 0.95em;
+    background: #f8f9fa;
+  }
+  
+  /* 最后一列突出 */
+  .audio-overview {
+    background: #fffbe6;
+    border: 2px solid #ffd700;
+    font-weight: bold;
+    box-shadow: 0 0 8px #ffe066;
+    opacity: 1;
+    font-size: 1.08em;
+  }
+  </style>
+
 
 <!-- Teaser video-->
  <!--
@@ -155,7 +203,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-          Recent advances in audio-based generative language models have greatly propelled AI-powered lyric-to-song generation. However, such paradigms often suffer from hallucination, where models produce content misaligned with the input lyrics, compromising musical coherence. To address this, we introduce <strong>a reinforcement learning framework</strong> based on three preference optimization methods, which are <strong>Direct Preference Optimization (DPO), Proximal Preference Optimization (PPO), and Group Relative Policy Optimization (GRPO)</strong>.  First, we construct a preference dataset by comparing original lyrics with phonemes recognized from generated music. DPO then operates <strong>off-policy</strong> to increase the likelihood of positive token generation, reducing Phone Error Rate (PER) by <strong>7.4%</strong> and indirectly mitigating hallucinations. From another perspective, based on the preference dataset, a <strong>reward model</strong> is trained for scoring generated token sequences by PER in on-policy PPO and GRPO. Through iterative on-policy sequence sampling and reward scoring, models are optimized via reward maximization and KL-divergence constraints, resulting in alleviation of hallucinations by <strong>4.9%</strong> and <strong>4.7%</strong> decrease in PER. Experimental results demonstrate our methods significantly suppress hallucinations while preserving musicality, as confirmed by subjective evaluations. This work provides a systematic solution to hallucination control in lyric-to-song generation, with transferable reinforcement learning frameworks that enable music style following, musicality enhancement, etc. It provides new avenues for future research in music generation.          </p>
+          Recent advances in audio-based generative language models have greatly propelled AI-powered lyric-to-song generation. However, such paradigms often suffer from hallucination, where models produce content misaligned with the input lyrics, compromising musical coherence. To address this, we introduce <strong>a reinforcement learning framework</strong> based on three preference optimization methods, which are <strong>Direct Preference Optimization (DPO), Proximal Preference Optimization (PPO), and Group Relative Policy Optimization (GRPO)</strong>.  First, we construct a preference dataset by comparing original lyrics with phonemes recognized from generated music. DPO then operates <strong>off-policy</strong> to increase the likelihood of positive token generation, reducing Phone Error Rate (PER) by <strong>7.4%</strong> and indirectly mitigating hallucinations. From another perspective, based on the preference dataset, a <strong>reward model</strong> is trained for scoring generated token sequences by PER in <strong> on-policy</strong> PPO and GRPO. Through iterative on-policy sequence sampling and reward scoring, models are optimized via reward maximization and KL-divergence constraints, resulting in alleviation of hallucinations by <strong>4.9%</strong> and <strong>4.7%</strong> decrease in PER. Experimental results demonstrate our methods significantly suppress hallucinations while preserving musicality, as confirmed by subjective evaluations. This work provides a systematic solution to hallucination control in lyric-to-song generation, with transferable reinforcement learning frameworks that enable music style following, musicality enhancement, etc. It provides new avenues for future research in music generation.          </p>
         </div>
       </div>
     </div>
@@ -202,6 +250,78 @@
             </tr>
           </thead>
           <tbody>
+      <tr>
+        <td  style="text-align: left;">
+          <details>
+            <summary>Click to show lyrics</summary>
+            <div class="lyrics-content">
+              <span class="lyrics-section">[verse]</span>
+              花朵绽放如诗篇.
+              随风轻舞动.
+              湖面波光映倒影.
+              心随波浪荡漾中.
+              感受着这美好时光.
+              仿佛梦境般飘渺
+      
+              <span class="lyrics-section">[chorus]</span>
+              唱啊唱.爱意围绕在身边.
+              唱啊唱.心情如此欢畅.
+              阳光洒满湖面.
+              一切都如此美好.
+              仿佛置身人间天堂.
+              让人心醉神迷
+      
+              <span class="lyrics-section">[verse]</span>
+              柳枝轻拂水面.
+              带来淡淡的花香.
+              渔夫划桨而过.
+              留下一道道涟漪.
+              在这宁静的午后.
+              一切都显得如此和谐
+      
+              <span class="lyrics-section">[chorus]</span>
+              唱啊唱.情人在我身旁.
+              唱啊唱.心情如此明亮.
+              雨滴轻敲窗棂.
+              夜风中烛火摇曳.
+              在这人间天堂.
+              让我们紧紧相拥
+              [verse]  [chorus]  [verse]  [chorus] 
+            </div>
+          </details>
+        </td>
+        <td width="12%" class="audio-compare" style="text-align: center;">
+          <audio controls="">
+            <source src="static/audio_sample/suno/02.mp3" type="audio/wav">
+          </audio>
+        </td>
+        <td width="12%" class="audio-compare" style="text-align: center;">
+          <audio controls="">
+            <source src="static/audio_sample/mureka/02.mp3" type="audio/wav">
+          </audio>
+        </td>
+        <td width="12%" class="audio-compare" style="text-align: center;">
+          <audio controls="">
+            <source src="static/audio_sample/yue/02.mp3" type="audio/wav">
+          </audio>
+        </td>
+        <td width="12%" class="audio-compare" style="text-align: center;">
+          <audio controls="">
+            <source src="static/audio_sample/diffrhythm/02.mp3" type="audio/wav">
+          </audio>
+        </td>
+        <td width="12%" class="audio-compare" style="text-align: center;">
+          <audio controls="">
+            <source src="static/audio_sample/acestep/02.mp3" type="audio/wav">
+          </audio>
+        </td>
+        <td width="12%" class="audio-overview" style="text-align: center;">
+          <audio controls="">
+            <source src="static/audio_sample/overview/02.mp3" type="audio/wav">
+          </audio>
+        </td>
+      </tr>
+
         </table>
      
   </div>
