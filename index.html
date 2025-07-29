@@ -179,24 +179,7 @@
   </style>
 
 
-<!-- Teaser video-->
- 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
 
-        <!-- Your video here -->
- 
-        <source src="static/videos/demo_origin.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        An example of hallucination mitigation by proposed RL framework. Left: Original, Right: Reject Sampling + DPO.
-      </h2>
-    </div>
-  </div>
-</section>
 
 <!-- End teaser video -->
 
@@ -231,6 +214,48 @@
     </div>
   </div>
 </section> -->
+
+<!-- Teaser video-->
+ 
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/demo_origin.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        An example of hallucination mitigation by proposed RL framework. Left: Original, Right: Reject Sampling + DPO.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- 使用 columns 实现并排布局 -->
+      <div class="columns is-centered is-vcentered">
+        <!-- 第一个视频（左） -->
+        <div class="column is-half">
+          <video poster="" id="tree-left" autoplay controls muted loop height="100%">
+            <source src="static/videos/demo_origin.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- 第二个视频（右） -->
+        <div class="column is-half">
+          <video poster="" id="tree-right" autoplay controls muted loop height="100%">
+            <source src="static/videos/demo_origin.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- 共用标题 -->
+      <h2 class="subtitle has-text-centered">
+        An example of hallucination mitigation by proposed RL framework. Left: Original, Right: Reject Sampling + DPO.
+      </h2>
+    </div>
+  </div>
+</section>
 
 <!-- Image carousel -->
 <section class="hero is-small">
